@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falls Car - Fazer Reserva</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="headerInner">
+            <a href="index.html" class="headerLogo">Falls <span>Car</span></a>
+            <div class="headerNav" id="areaUsuario"></div>
+            <a href="index.html" class="btn btnOutline">← Voltar ao Catálogo</a>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="checkout">
+            <div class="checkoutInner">
+                <h1 class="checkoutTitulo">Simular Reserva</h1>
+                <p class="checkoutSubtitulo">Preencha os dados abaixo para simular sua locação.</p>
+
+                <div class="checkoutGrid">
+                    <div class="checkoutFormWrap">
+                        <div id="mensagemRetorno" class="oculto"></div>
+
+                        <fieldset class="fieldset">
+                            <legend>Dados da Locação</legend>
+
+                            <div class="campo">
+                                <label for="selectAgencia">Agência de Retirada</label>
+                                <select id="selectAgencia">
+                                    <option value="">Selecione a agência</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="selectVeiculo">Veículo</label>
+                                <select id="selectVeiculo">
+                                    <option value="">Selecione a agência primeiro</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="selectPeriodo">Período</label>
+                                <select id="selectPeriodo">
+                                    <option value="">Selecione</option>
+                                    <option value="7">7 dias</option>
+                                    <option value="15">15 dias</option>
+                                    <option value="30">30 dias</option>
+                                </select>
+                            </div>
+
+                            <div class="campo campoCheckbox">
+                                <input type="checkbox" id="checkMotorista">
+                                <label for="checkMotorista">Incluir motorista particular <span class="detalhe">(+ R$ 150,00/dia)</span></label>
+                            </div>
+
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend>Dados do Cliente</legend>
+
+                            <div class="campo">
+                                <label for="clienteNome">Nome Completo</label>
+                                <input type="text" id="clienteNome" placeholder="Seu nome completo">
+                            </div>
+
+                            <div class="campo">
+                                <label for="clienteCpf">CPF</label>
+                                <input type="text" id="clienteCpf" placeholder="000.000.000-00" maxlength="14">
+                            </div>
+
+                            <div class="campo">
+                                <label for="clienteNasc">Data de Nascimento</label>
+                                <input type="date" id="clienteNasc">
+                            </div>
+
+                            <div class="campo">
+                                <label for="cnhNumero">Número da CNH</label>
+                                <input type="text" id="cnhNumero" placeholder="00000000000" maxlength="11">
+                            </div>
+
+                            <div class="campo">
+                                <label for="cnhEmissao">Data de Emissão da CNH</label>
+                                <input type="date" id="cnhEmissao">
+                            </div>
+
+                        </fieldset>
+
+                        <div class="checkoutResumo oculto" id="resumoPreco">
+                            <span>Valor estimado:</span>
+                            <strong id="valorEstimado">R$ 0,00</strong>
+                        </div>
+
+                        <button class="btn btnPrimary btnFull" id="btnReservar">Confirmar Simulação</button>
+                    </div>
+
+                    <div class="checkoutInfo">
+                        <div class="infoCard">
+                            <h3>Como funciona?</h3>
+                            <ul>
+                                <li>Escolha a agência de retirada</li>
+                                <li>Selecione o veículo disponível</li>
+                                <li>Selecione o período desejado</li>
+                                <li>Preencha seus dados pessoais</li>
+                                <li>Confirme a simulação</li>
+                            </ul>
+                        </div>
+                        <div class="infoCard">
+                            <h3>Requisitos</h3>
+                            <ul>
+                                <li>CNH com mais de 2 anos de emissão</li>
+                                <li>Períodos disponíveis: 7, 15 ou 30 dias</li>
+                                <li>Retirada e devolução na mesma agência</li>
+                            </ul>
+                        </div>
+                        <div class="infoCard">
+                            <h3>Nossas Agências</h3>
+                            <ul id="listaAgenciasInfo"></ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Falls Car. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="assets/js/autenticar.js"></script>
+    <script src="assets/js/checkout.js"></script>
+</body>
+</html>

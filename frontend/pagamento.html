@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falls Car - Pagamento</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="headerInner">
+            <a href="index.html" class="headerLogo">Falls <span>Car</span></a>
+            <div class="headerNav" id="areaUsuario"></div>
+            <a href="checkout.html" class="btn btnOutline">← Voltar</a>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="pagamento">
+            <div class="pagamentoInner">
+                <h1 class="pagamentoTitulo">Finalizar Pagamento</h1>
+                <p class="pagamentoSubtitulo">Escolha a forma de pagamento para concluir sua reserva.</p>
+
+                <div class="pagamentoGrid">
+
+                    <div class="pagamentoFormWrap">
+                        <div id="mensagemRetorno" class="oculto"></div>
+
+                        <div class="pagamentoTabs">
+                            <button class="pagamentoTab ativo" data-tab="credito">💳 Crédito</button>
+                            <button class="pagamentoTab" data-tab="debito">🏦 Débito</button>
+                            <button class="pagamentoTab" data-tab="pix">⚡ Pix</button>
+                        </div>
+
+                        <div class="pagamentoConteudo" id="tabCredito">
+                            <div class="campo">
+                                <label for="creditoNumero">Número do Cartão</label>
+                                <input type="text" id="creditoNumero" placeholder="0000 0000 0000 0000" maxlength="19">
+                            </div>
+                            <div class="campo">
+                                <label for="creditoNome">Nome no Cartão</label>
+                                <input type="text" id="creditoNome" placeholder="Como está no cartão">
+                            </div>
+                            <div class="pagamentoDuplo">
+                                <div class="campo">
+                                    <label for="creditoValidade">Validade</label>
+                                    <input type="text" id="creditoValidade" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                <div class="campo">
+                                    <label for="creditoCvv">CVV</label>
+                                    <input type="text" id="creditoCvv" placeholder="000" maxlength="3">
+                                </div>
+                            </div>
+                            <div class="campo">
+                                <label for="creditoParcelas">Parcelas</label>
+                                <select id="creditoParcelas"></select>
+                            </div>
+                        </div>
+
+                        <div class="pagamentoConteudo oculto" id="tabDebito">
+                            <div class="campo">
+                                <label for="debitoNumero">Número do Cartão</label>
+                                <input type="text" id="debitoNumero" placeholder="0000 0000 0000 0000" maxlength="19">
+                            </div>
+                            <div class="campo">
+                                <label for="debitoNome">Nome no Cartão</label>
+                                <input type="text" id="debitoNome" placeholder="Como está no cartão">
+                            </div>
+                            <div class="pagamentoDuplo">
+                                <div class="campo">
+                                    <label for="debitoValidade">Validade</label>
+                                    <input type="text" id="debitoValidade" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                <div class="campo">
+                                    <label for="debitoCvv">CVV</label>
+                                    <input type="text" id="debitoCvv" placeholder="000" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pagamentoConteudo oculto" id="tabPix">
+                            <div class="pixContainer">
+                                <div class="pixQrcode" id="pixQrcode">
+                                    <div class="pixQrcodeInner">⬛⬜⬛<br>⬜⬛⬜<br>⬛⬜⬛</div>
+                                </div>
+                                <p class="pixInstrucao">Escaneie o QR Code acima com o app do seu banco ou copie a chave Pix abaixo:</p>
+                                <div class="pixChave">
+                                    <span id="pixChaveTexto">fallscar@pagamentos.com.br</span>
+                                    <button class="btn btnPrimary" id="btnCopiarPix">Copiar</button>
+                                </div>
+                                <p class="pixAviso">⚠️ O pagamento via Pix é confirmado em até 5 minutos.</p>
+                            </div>
+                        </div>
+
+                        <button class="btn btnPrimary btnFull" id="btnPagar">Confirmar Pagamento</button>
+                    </div>
+
+                    <div class="pagamentoResumo">
+                        <div class="infoCard">
+                            <h3>Resumo da Reserva</h3>
+                            <ul class="resumoLista">
+                                <li><span>Reserva</span><strong id="resumoId">—</strong></li>
+                                <li><span>Veículo</span><strong id="resumoVeiculo">—</strong></li>
+                                <li><span>Agência</span><strong id="resumoAgencia">—</strong></li>
+                                <li><span>Período</span><strong id="resumoPeriodo">—</strong></li>
+                                <li><span>Motorista</span><strong id="resumoMotorista">—</strong></li>
+                            </ul>
+                            <div class="resumoTotal">
+                                <span>Total</span>
+                                <strong id="resumoValor">—</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Falls Car. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="assets/js/autenticar.js"></script>
+    <script src="assets/js/pagamento.js"></script>
+</body>
+</html>

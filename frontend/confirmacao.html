@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falls Car - Reserva Confirmada</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="headerInner">
+            <a href="index.html" class="headerLogo">Falls <span>Car</span></a>
+            <div class="headerNav" id="areaUsuario"></div>
+            <a href="index.html" class="btn btnOutline">← Voltar ao Catálogo</a>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="confirmacao">
+            <div class="confirmacaoInner">
+                <div class="confirmacaoIcone">✅</div>
+                <h1 class="confirmacaoTitulo">Reserva Confirmada!</h1>
+                <p class="confirmacaoSubtitulo">Sua simulação foi registrada com sucesso.</p>
+
+                <div class="confirmacaoCard">
+                    <div class="confirmacaoLinha">
+                        <span>Número da Reserva</span>
+                        <strong id="confReservaId">—</strong>
+                    </div>
+                    <div class="confirmacaoLinha">
+                        <span>Veículo</span>
+                        <strong id="confVeiculo">—</strong>
+                    </div>
+                    <div class="confirmacaoLinha">
+                        <span>Agência de Retirada</span>
+                        <strong id="confAgencia">—</strong>
+                    </div>
+                    <div class="confirmacaoLinha">
+                        <span>Período</span>
+                        <strong id="confPeriodo">—</strong>
+                    </div>
+                    <div class="confirmacaoLinha">
+                        <span>Motorista Particular</span>
+                        <strong id="confMotorista">—</strong>
+                    </div>
+                    <div class="confirmacaoLinha">
+                        <span>Pagamento</span>
+                        <strong id="confPagamento">—</strong>
+                    </div>
+                    <div class="confirmacaoLinha confirmacaoLinhaDestaque">
+                        <span>Valor Total</span>
+                        <strong id="confValor">—</strong>
+                    </div>
+                </div>
+
+                <div class="confirmacaoAcoes">
+                    <a href="index.html" class="btn btnPrimary">Ver outros veículos</a>
+                    <a href="checkout.html" class="btn btnOutlineRoxo">Fazer nova reserva</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Falls Car. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="assets/js/autenticar.js"></script>
+    <script src="assets/js/confirmacao.js"></script>
+</body>
+</html>

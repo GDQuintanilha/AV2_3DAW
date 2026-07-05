@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Falls Car - Locadora de Veículos</title>
+    <title>Falls Car - Minhas Reservas</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -11,25 +11,17 @@
     <header class="header">
         <div class="headerInner">
             <a href="index.html" class="headerLogo">Falls <span>Car</span></a>
-            <div class="headerSearch">
-                <input type="text" id="campoBusca" placeholder="Buscar por modelo ou categoria...">
-            </div>
             <div class="headerNav" id="areaUsuario"></div>
-            <a href="checkout.html" class="btn btnBranco">Fazer Reserva</a>
+            <a href="index.html" class="btn btnOutline">← Voltar ao Catálogo</a>
         </div>
     </header>
 
     <main class="main">
-        <section class="hero">
-            <div class="heroContent">
-                <h1>Alugue com quem entende do assunto</h1>
-                <p>5 agências pelo Brasil. Retire perto de você.</p>
-            </div>
-        </section>
-
-        <section class="vitrine">
-            <div class="vitrineInner">
-                <div id="catalogoContainer"></div>
+        <section class="minhasReservas">
+            <div class="minhasReservasInner">
+                <h1 class="minhasReservasTitulo">Minhas Reservas</h1>
+                <p class="minhasReservasSubtitulo">Gerencie suas reservas ativas.</p>
+                <div id="reservasContainer"></div>
             </div>
         </section>
     </main>
@@ -39,6 +31,6 @@
     </footer>
 
     <script src="assets/js/autenticar.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/minhasReservas.js"></script>
 </body>
 </html>

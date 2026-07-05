@@ -9,7 +9,13 @@ function badgeStatus(status) {
         reservado:  'Reservado',
         manutencao: 'Em Manutenção'
     };
-    return `<span class="badge badge--${status}">${labels[status] || status}</span>`;
+    const classes = {
+        livre:      'badgeLivre',
+        alugado:    'badgeAlugado',
+        reservado:  'badgeReservado',
+        manutencao: 'badgeManutencao'
+    };
+    return `<span class="badge ${classes[status] || ''}">${labels[status] || status}</span>`;
 }
 
 function renderizarCard(veiculo) {
@@ -17,26 +23,30 @@ function renderizarCard(veiculo) {
         `<li>${ag.nome}</li>`
     ).join('');
 
+    const imgHtml = veiculo.foto_url
+        ? `<img class="cardImg" src="${veiculo.foto_url}" alt="${veiculo.nome}">`
+        : `<div class="cardImgPlaceholder">🚗</div>`;
+
     return `
         <div class="card">
-            <div class="card__img--placeholder">🚗</div>
-            <div class="card__body">
-                <span class="card__categoria">${veiculo.categoria}</span>
-                <span class="card__nome">${veiculo.marca} ${veiculo.nome}</span>
-                <div class="card__specs">
+            ${imgHtml}
+            <div class="cardBody">
+                <span class="cardCategoria">${veiculo.categoria}</span>
+                <span class="cardNome">${veiculo.marca} ${veiculo.nome}</span>
+                <div class="cardSpecs">
                     <span>${veiculo.ano}</span>
                     <span>${veiculo.cambio}</span>
                     <span>${veiculo.combustivel}</span>
                     <span>${veiculo.portas} portas</span>
                     ${veiculo.ar_cond ? '<span>Ar-cond.</span>' : ''}
                 </div>
-                <div class="card__agencias">
+                <div class="cardAgencias">
                     <p>Disponível em:</p>
                     <ul>${listaAgencias}</ul>
                 </div>
             </div>
-            <div class="card__footer">
-                <div class="card__preco">
+            <div class="cardFooter">
+                <div class="cardPreco">
                     R$ ${veiculo.preco_diaria.toFixed(2)} <small>/dia</small>
                 </div>
                 ${badgeStatus(veiculo.status)}
@@ -49,7 +59,7 @@ function renderizarCatalogo(veiculos) {
     const container = document.getElementById('catalogoContainer');
 
     if (!veiculos.length) {
-        container.innerHTML = '<p class="erro-msg">Nenhum veículo encontrado.</p>';
+        container.innerHTML = '<p class="erroMsg">Nenhum veículo encontrado.</p>';
         return;
     }
 
@@ -60,9 +70,9 @@ function renderizarCatalogo(veiculos) {
     });
 
     container.innerHTML = Object.entries(porCategoria).map(([categoria, veics]) => `
-        <div class="categoria-bloco">
+        <div class="categoriaBloco">
             <h2>${categoria}</h2>
-            <div class="cards-grid">
+            <div class="cardsGrid">
                 ${veics.map(renderizarCard).join('')}
             </div>
         </div>
@@ -95,7 +105,7 @@ async function init() {
         renderizarCatalogo(todosVeiculos);
         iniciarBusca();
     } catch (err) {
-        container.innerHTML = '<p class="erro-msg">Erro ao carregar o catálogo. Verifique se o servidor está ativo.</p>';
+        container.innerHTML = '<p class="erroMsg">Erro ao carregar o catálogo. Verifique se o servidor está ativo.</p>';
     }
 }
 
