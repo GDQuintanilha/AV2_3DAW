@@ -20,10 +20,9 @@ $sqlVeiculos = "
         v.foto,
         v.foto_url,
         v.status,
-        c.nome AS categoria
+        v.categoria_nome AS categoria
     FROM veiculos v
-    INNER JOIN categorias c ON c.id = v.categoria_id
-    ORDER BY c.nome, v.nome
+    ORDER BY v.categoria_nome, v.nome
 ";
 
 $sqlAgencias = "
